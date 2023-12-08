@@ -142,21 +142,29 @@ function do_benchmark () {
         --setup 'rm -rf datastore.np' \
         --cleanup 'rm -rf datastore.np' \
         --prepare 'rm -rf datastore.np' \
-        -n "noseyparker (v0.15.0)" \
-        "noseyparker scan ${REPO_URL} >> ${LOG_DIR}/noseyparker_${INDEX}.log" \
+        \
         -n "git-log" \
         "git log --oneline -p --pickaxe-regex -S'(\-{5}BEGIN [A-Z]+ PRIVATE KEY\-{5})|(AIza[0-9A-Za-z_-]{35})|(ya29\.[0-9A-Za-z\-_]+)|(AKIA[0-9A-Z]{16})|(amzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(EAACEdEose0cBA[0-9A-Za-z]+)|([rs]k_live_[a-zA-Z0-9]{20,30})|(xox[pborsa]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32})|sq0atp-[0-9A-Za-z\\-_]{22}'  >> ${LOG_DIR}/git-log_${INDEX}.log" \
-        -n "detect-secrets (1.4.0)" \
-        "./env/bin/detect-secrets -C {REPO_URL} scan >> ${LOG_DIR}/detect-secrets_${INDEX}.log" \
-        -n "git-secrets (1.3.0)" \
-        "cd ${REPO_URL} && git secrets --scan-history >> ${LOG_DIR}/git-secrets_${INDEX}.log && cd ${ROOT_DIR}" \
+        \
         -n "gitleaks (v8.18.1)" \
         "gitleaks detect -s ${REPO_URL} >> ${LOG_DIR}/gitleaks_${INDEX}.log" \
+        \
+        -n "noseyparker (v0.15.0)" \
+        "noseyparker scan ${REPO_URL} >> ${LOG_DIR}/noseyparker_${INDEX}.log" \
+        \
+        -n "git-secrets (1.3.0)" \
+        "cd ${REPO_URL} && git secrets --scan-history >> ${LOG_DIR}/git-secrets_${INDEX}.log && cd ${ROOT_DIR}" \
+        \
+        -n "detect-secrets (1.4.0)" \
+        "./env/bin/detect-secrets -C {REPO_URL} scan >> ${LOG_DIR}/detect-secrets_${INDEX}.log" \
+        \
         -n "trufflehog (2.2.1)" \
         "python tools/trufflehog_v2/truffleHog/truffleHog.py --repo_path ${REPO_URL} bug_requires_git_url_even_though_its_not_used >> ${LOG_DIR}/trufflehog_v2_${INDEX}.log" \
+        \
         -n "trufflehog (2.2.1) (no-entropy)" \
         "python tools/trufflehog_v2/truffleHog/truffleHog.py --entropy False --repo_path ${REPO_URL} bug_requires_git_url_even_though_its_not_used >> ${LOG_DIR}/trufflehog_v2_noentropy_${INDEX}.log" \
-        -n "/usr/local/bin/trufflehog (3.63.1)" \
+        \
+        -n "trufflehog (3.63.1)" \
         "trufflehog --no-verification --no-update filesystem ${REPO_URL} >> ${LOG_DIR}/trufflehog_v3_${INDEX}.log"
     done
 
