@@ -95,3 +95,40 @@ Benchmarks of various tools for detecting secrets in git repositories.
 | `trufflehog (2.2.1) (no-entropy)` | 5777.1 ± 105.2 | 5621.8 | 5937.4 | 7030.60 ± 304.96 |
 | `git-secrets (1.3.0)` | 61506.3 ± 64.4 | 61444.5 | 61648.2 | 74852.14 ± 2947.65 |
 
+#### https://github.com/puppeteer/puppeteer.git 
+
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `noseyparker (v0.15.0)` | 44840.2 | 44840.2 | 44840.2 | 16.32 |
+| `gitleaks (v8.18.1)` | 2326351.9 | 2326351.9 | 2326351.9 | 846.85 |
+| `trufflehog (2.2.1) (no-entropy)` | 908091.0 | 908091.0 | 908091.0 | 330.57 |
+| `trufflehog (3.63.1)` | 2747.1 | 2747.1 | 2747.1 | 1.00 |
+
+#### https://github.com/denoland/deno.git 
+
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `noseyparker (v0.15.0)` | 3790.1 | 3790.1 | 3790.1 | 1.00 |
+| `gitleaks (v8.18.1)` | 24476.7 | 24476.7 | 24476.7 | 6.46 |
+| `trufflehog (2.2.1) (no-entropy)` | 323471.1 | 323471.1 | 323471.1 | 85.35 |
+| `trufflehog (3.63.1)` | 12347.8 | 12347.8 | 12347.8 | 3.26 |
+
+#### https://github.com/openssl/openssl.git
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `noseyparker (v0.15.0)` | 15231.4 | 15231.4 | 15231.4 | 3.34 |
+| `gitleaks (v8.18.1)` | 47039.9 | 47039.9 | 47039.9 | 10.30 |
+| `trufflehog (2.2.1) (no-entropy)` | 4227323.6 | 4227323.6 | 4227323.6 | 925.70 |
+| `trufflehog (3.63.1)` | 4566.6 | 4566.6 | 4566.6 | 1.00 |
+
+#### https://github.com/v8/v8.git
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `noseyparker (v0.15.0)` | 73255.8 | 73255.8 | 73255.8 | 6.42 |
+| `gitleaks (v8.18.1)` | 400464.6 | 400464.6 | 400464.6 | 35.08 |
+| `trufflehog (2.2.1) (no-entropy)` | 7318095.3 | 7318095.3 | 7318095.3 | 641.04 |
+| `trufflehog (3.63.1)` | 11415.9 | 11415.9 | 11415.9 | 1.00 |
+
+#### https://github.com/torvalds/linux.git
+
+TBC
