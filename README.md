@@ -130,5 +130,9 @@ Benchmarks of various tools for detecting secrets in git repositories.
 | `trufflehog (3.63.1)` | 11415.9 | 11415.9 | 11415.9 | 1.00 |
 
 #### https://github.com/torvalds/linux.git
-
-TBC
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `noseyparker (v0.15.0)` | 539504.8 | 539504.8 | 539504.8 | 4.60 |
+| `gitleaks (v8.18.1)` | 1097233.5 | 1097233.5 | 1097233.5 | 9.35 |
+| `trufflehog (2.2.1) (no-entropy)` | 450200374.9 | 450200374.9 | 450200374.9 | 3835.20 |
+| `trufflehog (3.63.1)` | 117386.5 | 117386.5 | 117386.5 | 1.00 |
